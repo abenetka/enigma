@@ -36,7 +36,18 @@ class ShiftTest < Minitest::Test
     assert_equal "9121", shift.date_offset(date)
   end
 
-  
+  def test_it_calculate_total_shift
+    shift = Shift.new
+    key = "01234"
+    date = "220489"
+    assert_equal "10", shift.total_shift_a
+    assert_equal "11", shift.total_shift_b
+    assert_equal "25", shift.total_shift_d
+    assert_equal "25", shift.total_shift_d
+  end
+
+
+
 
 
 
