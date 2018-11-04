@@ -11,15 +11,7 @@ class ShiftTest < Minitest::Test
     assert_instance_of Shift, shift
   end
 
-  def test_it_can_generate_a_key
-    shift = Shift.new
-    assert_equal 5, shift.key_generator.length
-  end
 
-  def test_it_can_generate_the_date
-    shift = Shift.new
-    assert_equal 6, shift.date_generator.length
-  end
 
   # def test_it_can_calculate_key_shift
   #   shift = Shift.new
@@ -45,14 +37,5 @@ class ShiftTest < Minitest::Test
     assert_equal 25, shift.total_shift_c(key, date)
     assert_equal 35, shift.total_shift_d(key, date)
   end
-
-
-
-
-
-
-
-
-
 
 end

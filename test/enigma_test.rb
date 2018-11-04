@@ -10,6 +10,16 @@ class EnigmaTest < Minitest::Test
      assert_instance_of Enigma, enigma
   end
 
+  def test_it_can_generate_a_key
+    shift = Shift.new
+    assert_equal 5, shift.key_generator.length
+  end
+
+  def test_it_can_generate_the_date
+    shift = Shift.new
+    assert_equal 6, shift.date_generator.length
+  end
+
   def test_it_can_encrypt_a_message
     enigma = Enigma.new
 
