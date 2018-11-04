@@ -1,9 +1,77 @@
-class Encryption
+require './lib/shift'
 
-  
+class Encryption
+  attr_reader :message, :key, :date
+
+  def initialize(message, key, date)
+    @message = message
+    @key = key
+    @date = date
+  end
+
+  def shift
+    Shift.new(@key, @date)
+  end
+
+  def char_set
+    ("a".."z").to_a << " "
+  end
+
+  def split_message
+    message.chars
+  end
+
+  def encryption
+    new_message = split_message.each_with_index.map do |character, index|
+      rotation = shifter(index)
+      # binding.pry
+      char_index = char_set.index(character)
+      total_rot = char_index + rotation
+      char_set.rotate(total_rot).first
+    end
+    new_message.join
+
+  end
+
+  def shifter(index)
+    shift_index = index % 4
+    return shift.total_shift_a if shift_index == 0
+    return shift.total_shift_b if shift_index == 1
+    return shift.total_shift_c if shift_index == 2
+    return shift.total_shift_d if shift_index == 3
+  end
 
 end
 
+
+
+
+
+
+
+
+
+# binding.pry
+# end
+# split_message.each do |character|
+#   split_message.index = index
+#   shifter(index)
+#   binding.pry
+# end
+#
+# # binding.pry
+# split_message.each do |array|
+#   array.each do |character|
+#     binding.pry
+#     charset = ("a".."z").to_a << " "
+#     index = charset.index(character)
+#     # binding.pry
+#   end
+# end
+
+  #1.take message and chars it for index numbers
+  #2. split message into little arrays(size 4)
+  #3. based on index number, apply shift
 
 
 #   def encrypt(message, key, date)
