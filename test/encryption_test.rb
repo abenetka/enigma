@@ -46,6 +46,14 @@ class EncryptionTest < Minitest::Test
     assert_equal  10 , encryption.shifter(index_5)
   end
 
+  def test_it_can_decrypt_a_message
+    decryption = Encryption.new("keder ohulw", "02715", "040895")
+    expected = "hello world"
+
+    assert_equal expected, decryption
+  end
+
+
 
 
 end

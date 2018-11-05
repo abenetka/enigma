@@ -26,27 +26,4 @@ class Shift
     key[3..4].to_i + date_offset[3].to_i
   end
 
-
-
-    #
-    # def key_shift_a(key)
-    #   split = key.chars
-    #   split[0] + split[1]
-    # end
-    #
-    # def key_shift_b(key)
-    #   split = key.chars
-    #   split[1] + split[2]
-    # end
-    #
-    # def key_shift_c(key)
-    #   split = key.chars
-    #   split[2] + split[3]
-    # end
-    #
-    # def key_shift_d(key)
-    #   split = key.chars
-    #   split[3] + split[4]
-    # end
-
 end
