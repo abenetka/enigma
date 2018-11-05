@@ -24,12 +24,19 @@ class ShiftTest < Minitest::Test
   end
 
   def test_it_calculate_total_shift
-    shift = Shift.new("01234", "220489")
+    shift_1 = Shift.new("01234", "220489")
 
-    assert_equal 10, shift.total_shift_a
-    assert_equal 13, shift.total_shift_b
-    assert_equal 25, shift.total_shift_c
-    assert_equal 35, shift.total_shift_d
+    assert_equal 10, shift_1.total_shift_a
+    assert_equal 13, shift_1.total_shift_b
+    assert_equal 25, shift_1.total_shift_c
+    assert_equal 35, shift_1.total_shift_d
+
+    shift_2 = Shift.new("02715", "040895")
+
+    assert_equal 3, shift_2.total_shift_a
+    assert_equal 27, shift_2.total_shift_b
+    assert_equal 73, shift_2.total_shift_c
+    assert_equal 20, shift_2.total_shift_d
   end
 
 

@@ -9,10 +9,6 @@ class Encryption
     @date = date
   end
 
-  def shift
-    Shift.new(@key, @date)
-  end
-
   def char_set
     ("a".."z").to_a << " "
   end
@@ -29,10 +25,10 @@ class Encryption
       char_set.rotate(total_rot).first
     end
     new_message.join
-
   end
 
   def shifter(index)
+    shift = Shift.new(@key, @date)
     shift_index = index % 4
     return shift.total_shift_a if shift_index == 0
     return shift.total_shift_b if shift_index == 1
