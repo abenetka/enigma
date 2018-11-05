@@ -24,6 +24,14 @@ class Shift
 
   def total_shift_d
     key[3..4].to_i + date_offset[3].to_i
+  endr
+
+  def shifter(index)
+    shift_index = index % 4
+    return total_shift_a if shift_index == 0
+    return total_shift_b if shift_index == 1
+    return total_shift_c if shift_index == 2
+    return total_shift_d if shift_index == 3
   end
 
 end
