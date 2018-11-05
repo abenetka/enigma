@@ -1,5 +1,5 @@
 class Enigma
-  attr_reader :key, :date
+  attr_reader :key, :date, :character_set
 
   def initialize
     @key = key
@@ -24,6 +24,11 @@ class Enigma
     encryption_hash[:date] = date
     encryption_hash
   end
+
+  def decrypt(message, key, date)
+
+  end
+
 
 
 
