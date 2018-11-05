@@ -40,4 +40,20 @@ class ShiftTest < Minitest::Test
   end
 
 
+    def test_it_can_assign_shift_based_on_index
+      shift = Shift.new("01234", "220489")
+      index_1 = 1
+      index_2 = 10
+      index_3 = 3
+      index_4 = 5
+      index_5 = 8
+
+      assert_equal  13 , shift.shifter(index_1)
+      assert_equal  25 , shift.shifter(index_2)
+      assert_equal  35 , shift.shifter(index_3)
+      assert_equal  13, shift.shifter(index_4)
+      assert_equal  10 , shift.shifter(index_5)
+    end
+
+
 end

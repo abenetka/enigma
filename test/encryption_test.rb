@@ -28,32 +28,6 @@ class EncryptionTest < Minitest::Test
     assert_equal 5, encryption_2.encryption.length
     assert_equal expected_3, encryption_3.encryption
     assert_equal 17, encryption_3.encryption.length
-
   end
-
-  def test_it_can_assign_shift_based_on_index
-    encryption = Encryption.new("hello world", "01234", "220489")
-    index_1 = 1
-    index_2 = 10
-    index_3 = 3
-    index_4 = 5
-    index_5 = 8
-
-    assert_equal  13 , encryption.shifter(index_1)
-    assert_equal  25 , encryption.shifter(index_2)
-    assert_equal  35 , encryption.shifter(index_3)
-    assert_equal  13, encryption.shifter(index_4)
-    assert_equal  10 , encryption.shifter(index_5)
-  end
-
-  def test_it_can_decrypt_a_message
-    decryption = Encryption.new("keder ohulw", "02715", "040895")
-    expected = "hello world"
-
-    assert_equal expected, decryption
-  end
-
-
-
 
 end
