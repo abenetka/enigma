@@ -41,12 +41,24 @@ class EnigmaTest < Minitest::Test
 
   def test_it_can_encrypt_a_message_without_date
     enigma = Enigma.new
-
     encrypted = enigma.encrypt("hello world", "02715")
-    expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
-    assert_equal expected, encrypted
-
+    assert_equal encrypted, enigma.encrypt("hello world", "02715")
   end
+
+  def test_it_can_encrypt_a_message_without_date_and_key
+    enigma = Enigma.new
+    encrypted = enigma.encrypt("hello world")
+    assert_equal 11, encrypted[:encryption].length
+  end
+
+  def test_it_can_decrypt
+    enigma = Enigma.new
+    encrypted = enigma.encrypt("hello world")
+    decrypted = enigma.decrypt(encrypted[:encryption], "02715")
+    assert_equal 11, decrypted[:decryption].length
+  end
+
+
 
 
 
