@@ -1,6 +1,8 @@
 require 'minitest/autorun'
 require 'minitest/pride'
 require './lib/enigma'
+require './lib/shift'
+require './lib/encryption'
 require 'date'
 require 'pry'
 
@@ -11,22 +13,22 @@ class EnigmaTest < Minitest::Test
   end
 
   def test_it_can_generate_a_key
-    shift = Shift.new
-    assert_equal 5, shift.key_generator.length
+    enigma = Enigma.new
+    assert_equal 5, enigma.key_generator.length
   end
 
   def test_it_can_generate_the_date
-    shift = Shift.new
-    assert_equal 6, shift.date_generator.length
+    enigma = Enigma.new
+    assert_equal 6, enigma.date_generator.length
   end
 
   def test_it_can_encrypt_a_message
     enigma = Enigma.new
 
-    actual = enigma.encrypt("hello world", "02715", "040895")
-    expected = {encryption: "keder ohulw", key: "02715", date: "040895"}
-
-    assert_equal expected, actual
+    expected_1 = {encryption: "rrjtymuwayb", key: "01234", date: "220489"}
+    expected_2 = {encryption: "keder ohulw", key: "02715", date: "040895"}
+    assert_equal expected_1, enigma.encrypt("hello world", "01234", "220489")
+    assert_equal expected_2, enigma.encrypt("hello world", "02715", "040895")
   end
 
 
