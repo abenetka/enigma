@@ -24,7 +24,6 @@ class Encryption
   def encryption
     new_message = split_message.each_with_index.map do |character, index|
       rotation = shifter(index)
-      # binding.pry
       char_index = char_set.index(character)
       total_rot = char_index + rotation
       char_set.rotate(total_rot).first

@@ -11,7 +11,6 @@ class Shift
   end
 
   def total_shift_a
-    # binding.pry
     key[0..1].to_i + date_offset[0].to_i
   end
 
@@ -26,6 +25,8 @@ class Shift
   def total_shift_d
     key[3..4].to_i + date_offset[3].to_i
   end
+
+
 
     #
     # def key_shift_a(key)

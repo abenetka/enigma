@@ -37,4 +37,5 @@ class ShiftTest < Minitest::Test
     assert_equal 35, shift.total_shift_d
   end
 
+
 end

@@ -15,12 +15,7 @@ class Enigma
     Date.today.strftime('%d%m%y')
   end
 
-  # def key_generator
-  #   ('0'..'99999').to_a.sample.rjust(2, '0')
-  #   binding.pry
-  # end
-
-
+  
 
 
 end
