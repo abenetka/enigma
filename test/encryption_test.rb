@@ -12,6 +12,7 @@ class EncryptionTest < Minitest::Test
 
   def test_it_can_split_a_message
     encryption = Encryption.new("hello world", "01234", "220489")
+
     expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
     assert_equal expected, encryption.split_message
   end
