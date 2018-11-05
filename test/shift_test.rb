@@ -6,17 +6,6 @@ class ShiftTest < Minitest::Test
     assert_instance_of Shift, shift
   end
 
-
-
-  # def test_it_can_calculate_key_shift
-  #   shift = Shift.new
-  #   key =  "01234"
-  #   assert_equal "01", shift.key_shift_a(key)
-  #   assert_equal "12", shift.key_shift_b(key)
-  #   assert_equal "23", shift.key_shift_c(key)
-  #   assert_equal "34", shift.key_shift_d(key)
-  # end
-
   def test_it_can_calculate_date_offset
     shift = Shift.new("01234", "220489")
 
@@ -38,6 +27,22 @@ class ShiftTest < Minitest::Test
     assert_equal 73, shift_2.total_shift_c
     assert_equal 20, shift_2.total_shift_d
   end
+
+
+    def test_it_can_assign_shift_based_on_index
+      shift = Shift.new("01234", "220489")
+      index_1 = 1
+      index_2 = 10
+      index_3 = 3
+      index_4 = 5
+      index_5 = 8
+
+      assert_equal  13 , shift.shifter(index_1)
+      assert_equal  25 , shift.shifter(index_2)
+      assert_equal  35 , shift.shifter(index_3)
+      assert_equal  13, shift.shifter(index_4)
+      assert_equal  10 , shift.shifter(index_5)
+    end
 
 
 end

@@ -26,7 +26,13 @@ class Enigma
   end
 
   def decrypt(message, key, date)
-
+    decrypted_hash = Hash.new(0)
+    message = Decryption.new(message, key, date)
+    decrypted_message = message.decryption
+    decrypted_hash[:decryption] = decrypted_message
+    decrypted_hash[:key] = key
+    decrypted_hash[:date] = date
+    decrypted_hash
   end
 
 
