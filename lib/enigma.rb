@@ -25,7 +25,7 @@ class Enigma
     encryption_hash
   end
 
-  def decrypt(message, key, date)
+  def decrypt(message, key = key_generator, date = date_generator)
     decrypted_hash = Hash.new(0)
     message = Decryption.new(message, key, date)
     decrypted_message = message.decryption
