@@ -1,16 +1,20 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/enigma'
-require './lib/shift'
-require './lib/encryption'
-require 'date'
-require 'pry'
+require_relative './test_helper'
+
 
 class EnigmaTest < Minitest::Test
   def test_it_exists
      enigma = Enigma.new
      assert_instance_of Enigma, enigma
   end
+
+  def test_it_has_attributes
+    enigma = Enigma.new
+    key = "01234"
+    date = "22048g9"
+    assert_equal "01234", enigma.key
+
+  end
+
 
   def test_it_can_generate_a_key
     enigma = Enigma.new

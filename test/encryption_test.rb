@@ -1,8 +1,5 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/encryption'
-require 'date'
-require 'pry'
+require_relative './test_helper'
+
 
 class EncryptionTest < Minitest::Test
   def test_it_exists

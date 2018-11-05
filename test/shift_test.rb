@@ -1,9 +1,4 @@
-require 'minitest/autorun'
-require 'minitest/pride'
-require './lib/shift'
-require './lib/enigma'
-require 'date'
-require 'pry'
+require_relative './test_helper'
 
 class ShiftTest < Minitest::Test
   def test_it_exists
