@@ -1,5 +1,6 @@
 class Shift
   attr_reader :key, :date
+
   def initialize(key, date)
     @key = key
     @date = date
@@ -24,7 +25,7 @@ class Shift
 
   def total_shift_d
     key[3..4].to_i + date_offset[3].to_i
-  endr
+  end
 
   def shifter(index)
     shift_index = index % 4
