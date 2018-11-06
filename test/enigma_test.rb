@@ -79,15 +79,4 @@ class EnigmaTest < Minitest::Test
     assert_equal 3, decrypted.keys.count
   end
 
-
-
-
-
-
-
-
-
-
-
-
 end
