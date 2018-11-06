@@ -4,13 +4,6 @@ require './lib/decryption'
 require './lib/shift'
 
 class Enigma
-  attr_reader :key, :date, :character_set
-
-  def initialize
-    @key = key
-    @date = date
-    @character_set = ("a".."z").to_a << " "
-  end
 
   def key_generator
     ('0'..'99999').to_a.sample.rjust(5, '0')
