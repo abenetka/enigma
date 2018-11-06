@@ -15,7 +15,7 @@ class Encryption
     message.downcase.chars
   end
 
-  def encryption
+  def encrypt
     split_message.each_with_index.map do |character, index|
       rotation(character, index)
     end.join
@@ -30,5 +30,5 @@ class Encryption
       character
     end
   end
-g
+
 end

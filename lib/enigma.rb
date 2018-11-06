@@ -15,7 +15,7 @@ class Enigma
 
   def encrypt(message, key = key_generator, date = date_generator)
     encrypt_output = Encryption.new(message, key, date)
-    {encryption: encrypt_output.encryption, key: key, date: date}
+    {encryption: encrypt_output.encrypt, key: key, date: date}
   end
 
   def decrypt(message, key = key_generator, date = date_generator)
