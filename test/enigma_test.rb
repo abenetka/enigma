@@ -3,6 +3,7 @@ require_relative './test_helper'
 class EnigmaTest < Minitest::Test
   def test_it_exists
      enigma = Enigma.new
+
      assert_instance_of Enigma, enigma
   end
 
@@ -11,6 +12,7 @@ class EnigmaTest < Minitest::Test
 
     expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
       "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+
     assert_equal expected, enigma.character_set
   end
 
@@ -62,10 +64,8 @@ class EnigmaTest < Minitest::Test
     expected_1 = {decryption: "hello world", key: "02715", date: "040895"}
     expected_2 = {decryption: "hello world", key: "01234", date: "220489"}
 
-
     assert_equal expected_1, enigma.decrypt("keder ohulw", "02715", "040895")
     assert_equal expected_2, enigma.decrypt("rrjtymuwayb", "01234", "220489")
-
   end
 
   def test_it_can_decrypt
