@@ -5,11 +5,11 @@ message = File.open(ARGV[0], "r")
 incoming_message = message.read
 message.close
 
-encrypted = enigma.encrypt(message, key, date)
+encrypted = enigma.encrypt(incoming_message, key, date)
 
-encrypted = File.open(ARGV[1], "w")
+encryption = File.open(ARGV[1], "w")
 
-writer.write(encrypted)
+encryption.write(output_of_encryption)
 
 writer.close
 
