@@ -30,4 +30,20 @@ class EncryptionTest < Minitest::Test
     assert_equal 17, encryption_3.encryption.length
   end
 
+  def test_it_can_encrypt_a_message_with_characters_not_in_character_set
+    encryption = Encryption.new("hello world!", "02715", "040895")
+
+    expected = "keder ohulw!"
+    assert_equal expected, encryption.encryption
+  end
+
+  def test_it_can_encrypt_a_message_with_uppercase_characters
+    encryption = Encryption.new("Hello World", "02715", "040895")
+
+    expected = "keder ohulw"
+    assert_equal expected, encryption.encryption
+  end
+
+
+
 end
