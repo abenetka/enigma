@@ -21,21 +21,13 @@ class Enigma
   end
 
   def encrypt(message, key = key_generator, date = date_generator)
-    encryption_hash = Hash.new(0)
-    message = Encryption.new(message, key, date)
-    encryption_hash[:encryption] = message.encryption
-    encryption_hash[:key] = key
-    encryption_hash[:date] = date
-    encryption_hash
+    encrypt_output = Encryption.new(message, key, date)
+    {encryption: encrypt_output.encryption, key: key, date: date}
   end
 
   def decrypt(message, key = key_generator, date = date_generator)
-    decryption_hash = Hash.new(0)
-    message = Decryption.new(message, key, date)
-    decryption_hash[:decryption] = message.decryption
-    decryption_hash[:key] = key
-    decryption_hash[:date] = date
-    decryption_hash
+    decrypt_output = Decryption.new(message, key, date)
+    {decryption: decrypt_output.decryption, key: key, date: date}
   end
 
 end
