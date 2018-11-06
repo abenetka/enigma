@@ -38,10 +38,4 @@ class Enigma
     decryption_hash
   end
 
-
-
-
-
-
-
 end
