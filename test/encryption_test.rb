@@ -14,6 +14,15 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.split_message
   end
 
+    def test_it_can_create_a_character_set
+      encryption = Encryption.new("hello world", "01234", "220489")
+
+      expected = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l", "m",
+        "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z", " "]
+
+      assert_equal expected, encryption.character_set
+    end
+
   def test_it_can_encrypt_a_message
     encryption_1 = Encryption.new("ali", "01234", "220489")
     encryption_2 = Encryption.new("hello", "01234", "220489")
