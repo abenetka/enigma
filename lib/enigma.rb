@@ -1,3 +1,8 @@
+require 'date'
+require './lib/encryption'
+require './lib/decryption'
+require './lib/shift'
+
 class Enigma
   attr_reader :key, :date, :character_set
 

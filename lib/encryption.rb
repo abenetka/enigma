@@ -13,15 +13,19 @@ class Encryption
   end
 
   def split_message
-    message.chars
+    message.downcase.chars
   end
 
   def encryption
     new_message = split_message.each_with_index.map do |character, index|
-      rotation = @shift.shifter(index)
       char_index = char_set.index(character)
-      total_rot = char_index + rotation
-      char_set.rotate(total_rot).first
+      if char_index
+        rotation = @shift.shifter(index)
+        total_rot = char_index + rotation
+        char_set.rotate(total_rot).first
+      else
+        character
+      end
     end
     new_message.join
   end
