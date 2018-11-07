@@ -53,6 +53,19 @@ class DecryptionTest < Minitest::Test
     assert_equal 9, decryption_2.decrypt.length
   end
 
+  def test_it_can_rotate_a_character
+    decryption = Decryption.new("keder ohulw", "02715", "040895")
+
+    character_1 = "k"
+    character_2 = "r"
+    index_1 = 0
+    index_2 = 4
+
+    assert_equal "h", decryption.rotation(character_1, index_1)
+    assert_equal "o", decryption.rotation(character_2, index_2)
+  end
+
+
 
 
 
