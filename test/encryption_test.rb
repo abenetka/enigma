@@ -72,7 +72,6 @@ class EncryptionTest < Minitest::Test
 
     assert_equal "r", encryption.rotation(character_1, index_1)
     assert_equal "y", encryption.rotation(character_2, index_2)
-
   end
 
 
