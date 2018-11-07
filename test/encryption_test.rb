@@ -62,4 +62,18 @@ class EncryptionTest < Minitest::Test
     assert_equal expected, encryption.encrypt
   end
 
+  def test_it_can_rotate_a_character
+    encryption = Encryption.new("Hello World","01234", "220489")
+
+    character_1 = "h"
+    character_2 = "o"
+    index_1 = 0
+    index_2 = 4
+
+    assert_equal "r", encryption.rotation(character_1, index_1)
+    assert_equal "y", encryption.rotation(character_2, index_2)
+
+  end
+
+
 end
