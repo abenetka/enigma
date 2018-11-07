@@ -4,13 +4,6 @@ require './lib/decryption'
 require './lib/shift'
 
 class Enigma
-  attr_reader :key, :date, :character_set
-
-  def initialize
-    @key = key
-    @date = date
-    @character_set = ("a".."z").to_a << " "
-  end
 
   def key_generator
     ('0'..'99999').to_a.sample.rjust(5, '0')
@@ -21,29 +14,13 @@ class Enigma
   end
 
   def encrypt(message, key = key_generator, date = date_generator)
-    encryption_hash = Hash.new(0)
-    message = Encryption.new(message, key, date)
-    encrypted_message = message.encryption
-    encryption_hash[:encryption] = encrypted_message
-    encryption_hash[:key] = key
-    encryption_hash[:date] = date
-    encryption_hash
+    encrypt_output = Encryption.new(message, key, date)
+    {encryption: encrypt_output.encrypt, key: key, date: date}
   end
 
   def decrypt(message, key = key_generator, date = date_generator)
-    decrypted_hash = Hash.new(0)
-    message = Decryption.new(message, key, date)
-    decrypted_message = message.decryption
-    decrypted_hash[:decryption] = decrypted_message
-    decrypted_hash[:key] = key
-    decrypted_hash[:date] = date
-    decrypted_hash
+    decrypt_output = Decryption.new(message, key, date)
+    {decryption: decrypt_output.decrypt, key: key, date: date}
   end
-
-
-
-
-
-
 
 end
