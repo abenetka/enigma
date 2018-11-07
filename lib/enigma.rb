@@ -20,7 +20,7 @@ class Enigma
 
   def decrypt(message, key = key_generator, date = date_generator)
     decrypt_output = Decryption.new(message, key, date)
-    {decryption: decrypt_output.decryption, key: key, date: date}
+    {decryption: decrypt_output.decrypt, key: key, date: date}
   end
 
 end

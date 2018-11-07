@@ -13,21 +13,7 @@ class Decryption
     message.chars
   end
 
-  def decryption
-    new_message = split_message.each_with_index.map do |character, index|
-      char_index = @character_set.index(character)
-      if char_index
-        rotation = @shift.shifter(index)
-        total_rot = char_index - rotation
-        @character_set.rotate(total_rot).first
-      else
-        character
-      end
-    end
-    new_message.join
-  end
-
-  def encrypt
+  def decrypt
     split_message.each_with_index.map do |character, index|
       rotation(character, index)
     end.join
@@ -36,17 +22,11 @@ class Decryption
   def rotation(character, index)
     character_index = @character_set.index(character)
     if character_index
-      total_rotation = character_index + @shift.shifter(index)
+      total_rotation = character_index - @shift.shifter(index)
       @character_set.rotate(total_rotation).first
     else
       character
     end
   end
-
-
-
-
-
-
 
 end
