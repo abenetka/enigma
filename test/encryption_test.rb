@@ -35,7 +35,7 @@ class EncryptionTest < Minitest::Test
     assert_equal expected_2, encryption_2.encrypt
     assert_equal expected_3, encryption_3.encrypt
     assert_equal 3, encryption_1.encrypt.length
-    assert_equgal 5, encryption_2.encrypt.length
+    assert_equal 5, encryption_2.encrypt.length
     assert_equal 17, encryption_3.encrypt.length
   end
 
