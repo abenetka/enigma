@@ -3,7 +3,15 @@ require_relative './test_helper'
 class DecryptionTest < Minitest::Test
   def test_it_exists
     decryption = Decryption.new("keder ohulw", "02715", "040895")
+
     assert_instance_of Decryption, decryption
+  end
+
+  def test_it_can_split_a_message
+    decryption = Decryption.new("hello world", "01234", "220489")
+
+    expected = ["h", "e", "l", "l", "o", " ", "w", "o", "r", "l", "d"]
+    assert_equal expected, decryption.split_message
   end
 
   def test_it_can_create_a_character_set
@@ -16,17 +24,33 @@ class DecryptionTest < Minitest::Test
   end
 
   def test_it_can_decrypt_a_message
-    decryption = Decryption.new("keder ohulw", "02715", "040895")
+    decryption_1 = Decryption.new("keder ohulw", "02715", "040895")
+    decryption_2 = Decryption.new("rrjty", "01234", "220489")
+    decryption_3 = Decryption.new("o azhbrqy yqbmdbx", "01234", "220489")
 
-    expected = "hello world"
-    assert_equal expected, decryption.decrypt
+    expected_1 = "hello world"
+    expected_2 = "hello"
+    expected_3 = "encryption is fun"
+
+    assert_equal expected_1, decryption_1.decrypt
+    assert_equal expected_2, decryption_2.decrypt
+    assert_equal expected_3, decryption_3.decrypt
   end
 
   def test_it_can_decrypt_a_message_with_characters_not_in_character_set
-    decryption = Decryption.new("keder ohulw!", "02715", "040895")
+    decryption_1 = Decryption.new("keder ohulw!", "02715", "040895")
+    decryption_2 = Decryption.new("rrjty%$!!", "01234", "220489")
+    decryption_3 = Decryption.new("o azhbrqy yqbmdbx?", "01234", "220489")
 
-    expected = "hello world!"
-    assert_equal expected, decryption.decrypt
+    expected_1 = "hello world!"
+    expected_2 = "hello%$!!"
+    expected_3 = "encryption is fun?"
+
+    assert_equal expected_1, decryption_1.decrypt
+    assert_equal expected_2, decryption_2.decrypt
+    assert_equal expected_3, decryption_3.decrypt
+
+    assert_equal 9, decryption_2.decrypt.length
   end
 
 
